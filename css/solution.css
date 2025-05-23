@@ -1,0 +1,179 @@
+﻿/* General Body Styling */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+/* Solutions Page Styling */
+.solutions-page {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Section */
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+    .header h1 {
+        font-size: 2.5em;
+        color: #007BFF;
+    }
+
+    .header p {
+        font-size: 1.2em;
+        color: #666;
+    }
+
+/* Card Styling */
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    background-color: #ffffff;
+}
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+.card-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 1em;
+    color: #555;
+}
+
+/* Buttons */
+button, .btn {
+    font-size: 1em;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: #007BFF;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+    button:hover, .btn:hover {
+        background-color: #0056b3;
+    }
+
+/* Footer Styling */
+.footer {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-top: 1px solid #e9ecef;
+}
+
+    .footer p {
+        margin: 5px 0;
+        font-size: 0.9em;
+        color: #666;
+    }
+
+    .footer a {
+        color: #007BFF;
+        text-decoration: none;
+    }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+/* Icons */
+.card .fas {
+    margin-right: 10px;
+    font-size: 1.5em;
+    vertical-align: middle;
+    color: #007BFF;
+}
+
+.footer .fas {
+    margin-right: 5px;
+    color: #007BFF;
+}
+
+/* Responsive Grid for Cards */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.col-md-6 {
+    flex: 0 0 48%;
+    max-width: 48%;
+}
+
+@media (max-width: 768px) {
+    .col-md-6 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+/* Animations */
+.card:hover .fas {
+    transform: rotate(360deg);
+    transition: transform 1s ease;
+}
+/*//service section for the list of services we have outlined.. horizontally */
+.services-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.services-section li {
+    margin-right: 20px;
+}
+
+    .services-section li:last-child {
+        margin-right: 0;
+    }
+
+/* Ensure the banner image scales properly on smaller screens */
+.banner-image {
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+}
+
+@media (max-width: 768px) {
+    .banner-image {
+        height: 200px; /* Reduce height for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .banner-image {
+        height: 150px; /* Further reduce height for very small screens */
+    }
+}
+
+/* Ensure any other images in the solution page are responsive */
+.about-section img {
+    max-width: 100%; /* Ensure the image does not exceed its container width */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove inline-block spacing issues */
+    margin: 0 auto; /* Center the image */
+}

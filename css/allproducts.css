@@ -1,0 +1,303 @@
+﻿body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f9f9f9;
+}
+
+/* Header Styling */
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+    .header p {
+        font-size: 1.2em;
+        color: #444;
+        margin-bottom: 10px;
+    }
+
+    .header input[type="text"] {
+        padding: 10px;
+        width: 80%;
+        max-width: 400px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .header input[type="text"]:focus {
+            border-color: #007bff;
+            box-shadow: 0 4px 6px rgba(0, 123, 255, 0.2);
+        }
+
+/* Ensure the main container aligns the sidebar and product grid on the same row */
+.products-container {
+    display: flex;
+    align-items: flex-start; /* Top-align both sidebar and grid */
+    gap: 15px;
+    padding: 15px;
+}
+
+/* Sidebar: for larger screens, force static positioning & fixed width */
+@media (min-width: 769px) {
+    .sidebar {
+        position: static;
+        transform: none;
+        width: 250px; /* Use the max-width defined */
+    }
+}
+
+/* Mobile adjustments: make sidebar fixed and off-canvas */
+@media (max-width: 768px) {
+    .sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100%;
+        z-index: 1050;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+        width: 80%; /* adjust width as desired */
+    }
+
+        .sidebar.show {
+            transform: translateX(0);
+        }
+
+    /* Optional: hide sidebar toggle button on desktop screens */
+    .d-md-none {
+        display: flex;
+    }
+}
+.collapsed-toggle {
+    position: absolute;
+    top: 10px;
+    right: -20px;
+    background-color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+    .collapsed-toggle.hide {
+        display: none;
+    }
+
+    .collapsed-toggle.show {
+        display: block;
+    }
+
+/* Product Grid: use grid layout and force content to start at the top */
+.product-grid {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+    width: 100%;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-sizing: border-box;
+    align-content: start; /* Ensures grid rows start at the top */
+}
+    /* Product Item */
+    .product-item {
+        background-color: white; /* Uniform white background */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .product-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+    /* Product Image */
+    .product-image-container {
+        width: 100%;
+        height: 200px; /* Consistent height for images */
+        background-color: white; /* Fixed white background */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+
+        .product-image-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+    /* Product Info */
+    .product-info {
+        text-align: center;
+        padding: 10px;
+        background-color: white;
+        border-top: 1px solid #eee;
+        border-radius: 5px;
+    }
+
+        .product-info p {
+            margin: 5px 0;
+            color: #555;
+        }
+
+    .description-heading {
+        font-weight: bold;
+        font-size: 1.1em;
+        color: #333;
+    }
+
+    .description-text {
+        font-size: 0.9em;
+        color: #777;
+        line-height: 1.4;
+    }
+
+    /* Buttons */
+    .btn {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        font-size: 1em;
+        font-weight: bold;
+        text-align: center;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .btn:hover {
+            background-color: #0056b3;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+    /* Modal Styling */
+    .modal {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        z-index: 1050;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8); /* Ensure the modal has a dark backdrop */
+        overflow: hidden;
+    }
+
+    .modal-content {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 600px;
+        width: 100%;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        position: relative;
+    }
+
+    /* Navigation Buttons */
+    .modal-nav-left,
+    .modal-nav-right {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+        z-index: 10;
+        font-size: 1.2rem;
+        transition: background-color 0.3s ease;
+    }
+
+    .modal-nav-left {
+        left: -20px;
+    }
+
+    .modal-nav-right {
+        right: -20px;
+    }
+
+        .modal-nav-left:hover,
+        .modal-nav-right:hover {
+            background-color: #0056b3;
+        }
+
+    /* Image Styling */
+    .modal-image-container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+        .modal-image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+    /* Color Selection Styling */
+    .modal-colors {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 15px;
+    }
+
+    .color {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        margin: 0 5px;
+        cursor: pointer;
+        transition: transform 0.2s ease, border-color 0.3s ease;
+    }
+
+        .color:hover {
+            transform: scale(1.2);
+            border-color: #007bff;
+        }
+
+    /* Close Button Styling */
+    .close {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: white;
+        background: #ff0000;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        .close:hover {
+            background-color: #cc0000;
+        }

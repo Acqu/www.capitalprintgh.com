@@ -1,0 +1,62 @@
+{
+  "name": "Capitalprint",
+  "short_name": "Capitalprint",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#722f37",
+  "description": "Capitalprint offers premium printing services for all your business and personal needs.",
+  "lang": "en-US",
+  "orientation": "portrait",
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "maskable any"
+    }
+  ],
+  "share_target": {
+    "action": "/share",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "title": "name",
+      "text": "description",
+      "url": "start_url"
+    }
+  },
+  "categories": [ "business", "printing", "design" ],
+  "screenshots": [
+    {
+      "sizes": "1080x1920",
+      "src": "Images/screenshot1.jpeg",
+      "type": "image/png"
+    },
+    {
+      "src": "Images/screenshot2.jpeg",
+      "type": "image/png",
+      "sizes": "1080x1920"
+    }
+  ],
+  "cloudinary": {
+    "cloud_name": "dgp9tl5od",
+    "api_key": "998392524922318",
+    "api_secret": "OTAvp0EU6E-uKZVvvYm4PDoSXY4",
+    "upload_preset": "default-preset",
+    "resource_type": "image",
+    "allowed_formats": [ "jpg", "png", "webp" ],
+    "max_file_size": 5000000,
+    "quality": "auto",
+    "secure_url": "https://res.cloudinary.com/your-cloud-name/image/upload"
+  }
+}
